@@ -12,7 +12,8 @@ public class Main {
         ScheduleManager manager = new ScheduleManager();
         ExcelReader reader = new ExcelReader();
 
-        readTeachers: System.out.println("Рабочая директория: " + System.getProperty("user.dir"));
+        readTeachers:
+        System.out.println("Рабочая директория: " + System.getProperty("user.dir"));
         String teachersDir = "C:\\Users\\1\\IdeaProjects\\TestSchedule\\src\\main\\resources\\teachers";
         String groupsDir = "C:\\Users\\1\\IdeaProjects\\TestSchedule\\src\\main\\resources\\groups";
         String classroomsDir = "C:\\Users\\1\\IdeaProjects\\TestSchedule\\src\\main\\resources\\classrooms";
@@ -20,22 +21,19 @@ public class Main {
         try {
             Schedule schedule = manager.createScheduleFromExcel(teachersDir, groupsDir, classroomsDir);
 
-            Map<String, List<String>> lessonsByType = new HashMap<>();
+            /*Map<String, List<String>> lessonsByType = new HashMap<>();
             lessonsByType.put("Лекция", Arrays.asList("Математика", "Физика"));
             lessonsByType.put("Практика", Arrays.asList("Программирование", "Алгебра"));
             lessonsByType.put("Лабораторная работа", Arrays.asList("Химия", "Физика"));
 
-
-
-
             manager.distributeLessons(lessonsByType);
-            manager.printSchedule();
+            manager.printSchedule();*/
 
             // Пример использования: вывод расписания из файла группы
-            reader.printExcelSchedule("C:\\Users\\1\\IdeaProjects\\Tset\\src\\main\\resources\\groups\\921.xlsx");
+            reader.printExcelSchedule("C:\\Users\\1\\IdeaProjects\\TestSchedule\\src\\main\\resources\\groups\\921.xlsx");
 
 
-
+            //schedule.printSchedule();
 
 
         } catch (IOException e) {

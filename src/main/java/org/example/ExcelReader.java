@@ -1,5 +1,8 @@
 package org.example;
 
+
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -110,13 +113,7 @@ class ExcelReader {
         int headerRows = 8;
         int startColumn = 3; // Начало данных с 4-го столбца (индекс 3)
 
-        /*for (int week = 0; week < 30; week++) {
-            int weekOffset = week * (colsPerDay * 5 + colsPerDaySaturday);
-            for (int day = 0; day < 6; day++) {
-                int dayOffset = day < 5 ? day * colsPerDay : 5 * colsPerDay + (day - 5) * colsPerDaySaturday;
-                int currentCol = weekOffset + dayOffset + startColumn;*/
         for (int week = 0; week < 30; week++) {
-            //int weekOffset = week * (rowsPerDay * 5 + rowsPerDaySat); // week * 75 because 5 days with rowsPerDay and 1 day with colsPerDaySaturday = 75
             for (int day = 0; day < 6; day++) { // 6 дней (пн-сб)
                 int dayOffset = day < 5 ? day * rowsPerDay : 5 * rowsPerDay + (day - 5) * rowsPerDaySat;
                 int rowOffset = headerRows;
@@ -366,8 +363,8 @@ class ExcelReader {
 
 
                 }
+                System.out.println("--------------------"); // Разделитель недель
             }
-            System.out.println("--------------------"); // Разделитель недель
 
 
         }
